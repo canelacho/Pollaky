@@ -1,0 +1,5 @@
+node_modules/*
+*.pem
+querys.js
+.DS_Store
+mongodbBackup/*

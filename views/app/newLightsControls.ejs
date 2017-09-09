@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+<body class="container"  ng-cloak>
+
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+<main>
+    <div class="jumbotron">
+
+      <h2>
+        <span class="label label-info">
+          <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Light Controls
+        </span>
+      </h2>
+      
+      <form class="form-horizontal newOutletBoxForm" action="newOutletBox" method="POST">
+        <fieldset disabled>
+        <div class="form-group">
+          <label for="internalIdProyect" class="">Internal Id Project</label>
+          <input id="internalIdProyect" name="internalIdProyect" placeholder="Internal Id Project" type="text" value="<%=  %>" class="form-control col-sm-10 col-md-10 col-lg-10" />
+        </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="internalIdArea" class="col-sm-2 col-md-2 col-lg-3">Area</label>
+          <select class="form-control" name="internalIdArea" ng-model="internalIdArea">
+            <option value="Cocina" selected>Cocina</option>
+            <option value="Bedroom">Bedroom</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="name" class="">Name</label>
+          <input id="name" name="name" placeholder="Name" type="text" class="form-control col-sm-10 col-md-10 col-lg-10" />
+        </div>
+
+        <div class="form-group">
+          <label for="type" class="col-sm-2 col-md-2 col-lg-3">Type</label>
+          <select class="form-control" name="type" ng-model="type">
+            <option value="Switch" selected>Switch</option>
+            <option value="Dimmer">Dimmer</option>
+            <option value="SceneController">Scene Controller</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="class" class="col-sm-2 col-md-2 col-lg-3">Class</label>
+          <select class="form-control" name="class" ng-model="class">
+            <option value="Main" selected>Main</option>
+            <option value="Acc">Acc</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="whoProvide" class="col-sm-2 col-md-2 col-lg-3">Who provide</label>
+          <select class="form-control" name="whoProvide" ng-model="whoProvide">
+            <option value="Ctrlable" selected>Ctrlable</option>
+            <option value="Client">Client</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="qtyBulbs" class="">Qty Bulbs in circuit</label>
+          <input id="qtyBulbs" name="qtyBulbs" placeholder="Qty Bulbs (how many bulbs in the same circuit?)" type="text" class="form-control col-sm-10 col-md-10 col-lg-10" />
+        </div>
+
+        
+        <div class="form-group">
+          <label for="loadEachBulb" class="loadEachBulb">Promed Load Bulbs</label>
+          <input id="loadEachBulb" name="loadEachBulb" placeholder="Load by Bulb (ej: 50kW)" type="text" class="form-control col-sm-10 col-md-10 col-lg-10" />
+        </div>
+        
+        <div class="form-group">
+          <label for="observation" class="col-sm-2 col-md-2 col-lg-2">Observations </label>
+          <textarea id="observation" name="observation" placeholder="Any info or Observation to do..." type="text" class="form-control col-sm-10 col-md-10 col-lg-10" /></textarea> 
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-10 col-md-offset-10 col-lg-offset-10 col-sm-2 col-md-2 col-lg-2">
+              <button type="submit" class="form-control btn btn-default">Save</button>
+            </div>
+        </div>
+      </form> 
+    </div>
+
+
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+
+</body>
+</html>

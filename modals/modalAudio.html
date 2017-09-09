@@ -1,0 +1,99 @@
+<!-- Modal AudioControl Control -->
+<div class="modal fade" id="newAudioControl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header"> <!-- MODAL HEADER -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="material-icons">speaker</i> Add Audio Control</h4>
+        <small class="text-warning">Remenber save your changes before leave this form</small>
+      </div>
+
+      <div class="modal-body"> <!-- MODAL BODY -->
+        <form id="saveAudioControlForm" name="saveAudioControlForm" class="form-horizontal newAudioControlForm" action="/app/newAudioControl" method="POST" novalidate>
+
+          <div class="separateFields">
+            <input id="idProject" name="idProject" type="hidden" class="form-control" ng-model="device.idProject" />
+          </div>
+
+          <div class="separateFields">
+            <label for="areaLocation" class="">Area</label>
+            <select class="form-control" name="areaLocation" ng-model="device.areaLocation">
+              <option ng-repeat="area in Areas | orderBy:'name'">{{area.name}}</option>
+            </select>
+          </div>
+
+          <div class="separateFields">
+            <label for="name" class="">Name</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.name" placeholder="Input Device Name">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="type" class="">Type</label>
+            <md-radio-group ng-model="device.type">
+              <md-radio-button class="md-primary" value="Ctrlable Audio Zone">Ctrlable Audio Zone</md-radio-button>
+              <md-radio-button class="md-primary" value="Speaker">Speaker In Celling</md-radio-button>
+              <md-radio-button class="md-primary" value="Speaker On Wall">Speaker On Wall</md-radio-button>
+              <md-radio-button class="md-primary" value="Exterior Speaker On Wall">Exterior Speaker On Wall</md-radio-button>
+              <md-radio-button class="md-primary" value="Exterior Speaker On Floor">Exterior Speaker On Floor</md-radio-button>
+              <md-radio-button class="md-primary" value="Subwoofer">Subwoofer</md-radio-button>
+              <md-radio-button class="md-primary" value="USB Audio Card">USB Audio Card</md-radio-button>
+              <md-radio-button class="md-primary" value="Receiver">Receiver</md-radio-button>
+              <md-radio-button class="md-primary" value="Amplifier">Amplifier</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+
+          <div class="separateFields">
+            <label for="brand" class="">Brand</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.brand" placeholder="Sony, Onkio, Boss, Yamaha,...">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="whoProvide" class="">Who provide</label>
+            <md-radio-group ng-model="device.whoProvide">
+              <md-radio-button class="md-primary" value="Ctrlable">Ctrlable</md-radio-button>
+              <md-radio-button class="md-primary" value="Client">Client</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+
+          <div class="separateFields">
+            <label for="spaceInU" class="">Spaces in U</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.spaceInU" placeholder="1, 2, 3...">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="observation" class="">Observations </label>
+            <md-input-container class="md-block">
+              <label>Write any Info or Observation about it</label>
+              <textarea id="observation" name="observation" ng-model="device.observation" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+
+          <div class="separateFields col-sm-offset-10">
+             <button type="button" form="saveAudioControlForm" class="form-control btn btn-primary"  ng-click="saveAudioControl(device)">Save</button>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="modal-footer"> <!-- MODAL FOOTER -->
+        <div class="col-sm-10">
+          <span class="text text-danger">If you close this tab without save changes before, none of your data will be save it on project </span>
+        </div>
+        <div class="col-sm-2">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Modal AudioControl end-->

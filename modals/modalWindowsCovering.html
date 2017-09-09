@@ -1,0 +1,136 @@
+<!-- Modal Windows Covering Control -->
+<div class="modal fade" id="newWindowsCoveringControl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header"> <!-- MODAL HEADER -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="material-icons">brightness_4</i> Add Windows Covering Control</h4>
+        <small class="text-warning">Remenber save your changes before leave this form</small>
+      </div>
+
+      <div class="modal-body"> <!-- MODAL BODY -->
+        <form id="saveWindowsCoveringControlForm" name="saveWindowsCoveringControlForm" class="form-horizontal newWindowsCoveringControlForm" action="/app/newWindowsCoveringControl" method="POST" novalidate>
+
+          <div class="separateFields">
+            <input id="idProyect" name="idProyect" type="hidden" class="form-control" ng-model="device.idProject" />
+          </div>
+
+          <div class="separateFields">
+            <label for="areaLocation" class="">Area</label>
+            <select class="form-control" name="areaLocation" ng-model="device.areaLocation">
+              <option ng-repeat="area in Areas | orderBy:'name'">{{area.name}}</option>
+            </select>
+          </div>
+
+          <div class="separateFields">
+            <label for="name" class="">Name</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.name" placeholder="Input Device Name">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="whoProvide" class="">Who provide</label>
+            <md-radio-group ng-model="device.whoProvide">
+              <md-radio-button class="md-primary" value="Ctrlable">Ctrlable</md-radio-button>
+              <md-radio-button class="md-primary" value="Client">Client</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+
+          <div class="separateFields">
+            <label for="wallOrientation" class="">Wall Orientation</label>
+            <md-radio-group ng-model="device.wallOrientation">
+              <md-radio-button class="md-primary" value="Nort">Nort</md-radio-button>
+              <md-radio-button class="md-primary" value="South"> South </md-radio-button>
+              <md-radio-button class="md-primary" value="West">West</md-radio-button>
+              <md-radio-button class="md-primary"  value="East">East</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+
+
+          <div class="separateFields">
+            <label for="minwindowsWidth" class="">Minimus Windows Width</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.minwindowsWidth" placeholder="Min Windows Width">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="minwindowsHeight" class="">Minimus Windows Height</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.minwindowsHeight" placeholder="Min Windows Height">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="windowsDepth" class="">Windows Depth</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.windowsDepth" placeholder="Windows Width">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="motorPosition" class="">Motor Position</label>
+            <md-radio-group ng-model="device.motorPosition">
+              <md-radio-button class="md-primary" value="Left">Left</md-radio-button>
+              <md-radio-button class="md-primary" value="Right">Right</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+
+          <div class="separateFields">
+            <label for="ankled" class="">Ankled</label>
+            <md-radio-group ng-model="device.ankled">
+              <md-radio-button class="md-primary" value="Ceiling">Ceiling</md-radio-button>
+              <md-radio-button class="md-primary" value="Wall">Wall</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+
+          <div class="separateFields">
+            <label for="depthPosition" class="">Depth Position</label>
+            <md-radio-group ng-model="device.depthPosition">
+              <md-radio-button class="md-primary" value="Inside">Inside</md-radio-button>
+              <md-radio-button class="md-primary" value="Outside">Outside</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+
+          <div class="separateFields">
+            <label for="fabric" class="">Fabric</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.fabric" placeholder="Model number from list">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="observation" class="">Observations </label>
+            <md-input-container class="md-block">
+              <label>Write any Info or Observation about it</label>
+              <textarea id="observation" name="observation" ng-model="device.observation" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+
+          <div class="separateFields col-sm-offset-10">
+             <button type="button" form="saveWindowsCoveringControlForm" class="form-control btn btn-primary"  ng-click="saveWindowsCoveringControl(device)">Save</button>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="modal-footer"> <!-- MODAL FOOTER -->
+        <div class="col-sm-10">
+          <span class="text text-danger">If you close this tab without save changes before, none of your data will be save it on project </span>
+        </div>
+        <div class="col-sm-2">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Modal Windows Covering Control end-->

@@ -1,0 +1,98 @@
+<!-- Modal VideoControl Control -->
+<div class="modal fade" id="newVideoControl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header"> <!-- MODAL HEADER -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="material-icons">tv</i> Add Video Control</h4>
+        <small class="text-warning">Remenber save your changes before leave this form</small>
+      </div>
+
+      <div class="modal-body"> <!-- MODAL BODY -->
+        <form id="saveVideoControlForm" name="saveVideoControlForm" class="form-horizontal newVideoControlForm" action="/app/newVideoControl" method="POST" novalidate>
+
+          <div class="separateFields">
+            <input id="idProject" name="idProject" type="hidden" class="form-control" ng-model="device.idProject" />
+          </div>
+
+          <div class="separateFields">
+            <label for="areaLocation" class="">Area</label>
+            <select class="form-control" name="areaLocation" ng-model="device.areaLocation">
+              <option ng-repeat="area in Areas | orderBy:'name'">{{area.name}}</option>
+            </select>
+          </div>
+
+          <div class="separateFields">
+            <label for="name" class="">Name</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.name" placeholder="Input Device Name">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="type" class="">Type</label>
+            <md-radio-group ng-model="device.type">
+              <md-radio-button class="md-primary" value="Ctrlable Video Zone">Ctrlable Video Zone</md-radio-button>
+              <md-radio-button class="md-primary" value="TV">TV</md-radio-button>
+              <md-radio-button class="md-primary" value="Infrared Controler">Infrared Controler</md-radio-button>
+              <md-radio-button class="md-primary" value="Infrared Repeater">Infrared Repeater</md-radio-button>
+              <md-radio-button class="md-primary" value="HDMI Extender">HDMI Extender</md-radio-button>
+              <md-radio-button class="md-primary" value="TV Turner">TV Turner</md-radio-button>
+
+            </md-radio-group>
+            <br>
+          </div>
+
+          <div class="separateFields">
+            <label for="brand" class="">Brand</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.brand" placeholder="Sony, Onkio, Boss, Yamaha, Samsung...">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="whoProvide" class="">Who provide</label>
+            <md-radio-group ng-model="device.whoProvide">
+              <md-radio-button class="md-primary" value="Ctrlable">Ctrlable</md-radio-button>
+              <md-radio-button class="md-primary" value="Client">Client</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+
+          <div class="separateFields">
+            <label for="spaceInU" class="">Spaces in U</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.spaceInU" placeholder="1, 2, 3...">
+            </md-input-container>
+          </div>
+
+          <div class="separateFields">
+            <label for="observation" class="">Observations </label>
+            <md-input-container class="md-block">
+              <label>Write any Info or Observation about it</label>
+              <textarea id="observation" name="observation" ng-model="device.observation" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+
+          <div class="separateFields col-sm-offset-10">
+             <button type="button" form="saveVideoControlForm" class="form-control btn btn-primary"  ng-click="saveVideoControl(device)" ng-show="saveBtn">Save</button>
+             <button type="button" form="saveVideoControlForm" class="form-control btn btn-warning"  ng-click="updateVideoControl(device)" ng-show="updateBtn">Update</button>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="modal-footer"> <!-- MODAL FOOTER -->
+        <div class="col-sm-10">
+          <span class="text text-danger">If you close this tab without save changes before, none of your data will be save it on project </span>
+        </div>
+        <div class="col-sm-2">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Modal VideoControl end-->

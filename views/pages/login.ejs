@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/public/css/reset.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+
+  </head>
+
+<body>
+    <div class="wrap">
+    <form id="startSession" action="/startSession" method="POST" novalidate="">
+  		<div class="avatar">
+        <img src="/public/images/ctrlable_logo.jpg">
+  		</div>
+  		<input name="username" type="text" placeholder="username" required>
+  		<div class="bar">
+  			<i></i>
+  		</div>
+    	<input name="password" type="password" placeholder="password" required>
+    </form>
+  		<a href="#" class="forgot_link">forgot ?</a>
+  		<button type="submit" form="startSession">Sign in</button>
+	   <div class="footLogin">Code Name: "Pollaky" - Ver 0.0.3</div>
+    </div>
+</body>
+
+</html>

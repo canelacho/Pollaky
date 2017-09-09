@@ -1,0 +1,182 @@
+<!-- Modal Light Control -->
+<div class="modal fade" id="newLightControl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header"> <!-- MODAL HEADER -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><i class="material-icons">wb_incandescent</i> Add Lights Control</h4>
+        <small class="text-warning">Remenber save your changes before leave this form</small>
+      </div>
+
+      <div class="modal-body"> <!-- MODAL BODY -->
+
+        <form id="saveLightcontrolForm" name="saveLightcontrolForm" class="form-horizontal newLightControlForm" action="/app/newLightcontrol" method="POST" novalidate>
+
+	        <div class="separateFields">
+	          <input id="idProject" name="idProject" type="hidden" class="form-control" ng-model="device.idProject" />
+	        </div>
+
+	        <div class="separateFields">
+	          <label for="areaLocation" class="">Area</label>
+            <select class="form-control" name="areaLocation" ng-model="device.areaLocation">
+              <option ng-repeat="area in Areas | orderBy:'name'">{{area.name}}</option>
+            </select>
+            <br>
+	        </div>
+
+          <div class="separateFields">
+            <label for="name" class="">Name</label>
+            <md-input-container md-no-float class="md-block">
+              <input ng-model="device.name" placeholder="Input Device Name">
+            </md-input-container>
+          </div>
+	        <!-- <div class="separateFields">
+	          <label for="name" class="">Name</label>
+	          <input id="name" name="name" placeholder="Name" type="text" class="form-control" ng-model="device.name" required />
+	        </div> -->
+
+	        <div class="separateFields">
+            <label for="type" class="">Type</label>
+            <md-radio-group ng-model="device.type">
+              <md-radio-button class="md-primary" value="SwitchMain">Switch Main</md-radio-button>
+              <md-radio-button class="md-primary" value="SwitchAcc">Switch Acc</md-radio-button>
+              <md-radio-button class="md-primary" value="DimmerMain">Dimmer Main</md-radio-button>
+              <md-radio-button class="md-primary"  value="DimmerAcc">Dimmer Acc</md-radio-button>
+              <md-radio-button class="md-primary"  value="SceneController">Scene Controller</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+          <!-- <div class="separateFields">
+	          <label for="type" class="">Type</label>
+	          <select class="form-control" name="type" ng-model="device.type">
+	            <option value="SwitchMain" selected>Switch Main</option>
+              <option value="SwitchAcc" selected>Switch Acc</option>
+	            <option value="DimmerMain">Dimmer Main</option>
+              <option value="DimmerAcc">Dimmer Acc</option>
+	            <option value="SceneController">Scene Controller</option>
+	          </select>
+            <br>
+	        </div> -->
+
+          <div class="separateFields">
+            <label for="whoProvide" class="">Who provide</label>
+            <md-radio-group ng-model="device.whoProvide">
+              <md-radio-button class="md-primary" value="Ctrlable">Ctrlable</md-radio-button>
+              <md-radio-button class="md-primary" value="Client">Client</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+          <!-- <div class="separateFields">
+            <label for="whoProvide" class="">Who provide</label>
+            <select class="form-control" name="whoProvide" ng-model="device.whoProvide">
+              <option value="Ctrlable" selected>Ctrlable</option>
+              <option value="Client">Client</option>
+            </select>
+          </div> -->
+
+
+          <div class="separateFields">
+            <label for="wallOrientation" class="">Wall Orientation</label>
+            <md-radio-group ng-model="device.wallOrientation">
+              <md-radio-button class="md-primary" value="Nort">Nort</md-radio-button>
+              <md-radio-button class="md-primary" value="South"> South </md-radio-button>
+              <md-radio-button class="md-primary" value="West">West</md-radio-button>
+              <md-radio-button class="md-primary"  value="East">East</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+          <!-- <div class="separateFields">
+            <label for="wallOrientation" class="">Wall Orientation</label>
+            <select class="form-control" name="wallOrientation" ng-model="device.wallOrientation" >
+              <option value="North" selected>North</option>
+              <option value="South">South</option>
+              <option value="West">West</option>
+              <option value="East">East</option>
+            </select>
+          </div> -->
+
+	        <div class="separateFields">
+	          <label for="qtyBulbs" class="" >Qty Bulbs in circuit (how many bulbs in the same circuit?)</label>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="inc()">+</button>
+                  </span>
+                  <input id="qtyBulbs" name="qtyBulbs" placeholder="Qty Bulbs " type="text" class="form-control" ng-model="device.QtyBulbs" ng-init="device.QtyBulbs = 0" style="text-align:center" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="dec()">-</button>
+                  </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </div>
+            <br>
+	        </div>
+
+          <div class="separateFields">
+            <label for="typeLightBulbs" class="">Type of Light Bulbs</label>
+            <md-radio-group ng-model="device.typeLightBulbs">
+              <md-radio-button class="md-primary" value="incandescent">Incandescent</md-radio-button>
+              <md-radio-button class="md-primary" value="cfl"> Compact Fluorescent Lamp (CFL) </md-radio-button>
+              <md-radio-button class="md-primary" value="led">Light Emitting Diode (LED)</md-radio-button>
+              <md-radio-button class="md-primary"  value="halogen">Halogen Light Bulb</md-radio-button>
+            </md-radio-group>
+            <br>
+          </div>
+          <!-- <div class="separateFields">
+            <label for="typeLightBulbs" class="">Type of Light Bulbs</label>
+            <select class="form-control" name="typeLightBulbs" ng-model="device.typeLightBulbs" >
+              <option value="incandescent" selected>Incandescent</option>
+              <option value="cfl">Compact Fluorescent Lamp (CFL)</option>
+              <option value="led">Light Emitting Diode (LED)</option>
+              <option value="halogen">Halogen Light Bulb</option>
+            </select>
+          </div> -->
+
+          <div class="separateFields">
+            <label for="loadEachBulb" class="loadEachBulb">Bulbs Watts</label>
+            <md-input-container md-no-float class="md-block">
+              <input id="loadEachBulb" name="loadEachBulb" ng-model="device.loadEachBulb" placeholder="Load by Bulb (ej: 50kW) but just the value">
+            </md-input-container>
+          </div>
+	        <!-- <div class="separateFields">
+	          <label for="loadEachBulb" class="loadEachBulb">Bulbs Watts</label>
+	          <input id="loadEachBulb" name="loadEachBulb" placeholder="Load by Bulb (ej: 50kW) but just the value" type="text" class="form-control" ng-model="device.loadEachBulb"/>
+	        </div> -->
+
+          <div class="separateFields">
+            <label for="observation" class="">Observations </label>
+            <md-input-container class="md-block">
+              <label>Write any Info or Observation about it</label>
+              <textarea id="observation" name="observation" ng-model="device.observation" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+	        <!-- <div class="separateFields">
+	          <label for="observation" class="">Observations </label>
+	          <textarea id="observation" name="observation" placeholder="Any info or Observation to do..." type="text" class="form-control" ng-model="device.observation"/></textarea>
+	        </div> -->
+
+	        <div class="separateFields col-sm-offset-10">
+             <button type="button" form="saveLightcontrolForm" class="form-control btn btn-primary"  ng-click="saveLightcontrol(device)">Save</button>
+	        </div>
+	      </form>
+
+      </div>
+
+      <!-- validate -->
+      <div ng-show="saveLightcontrolForm.name.$error.required">Name Required</div>
+
+      <div class="modal-footer"> <!-- MODAL FOOTER -->
+      	<div class="col-sm-10">
+      		<span class="text text-danger">If you close this tab without save changes before, none of your data will be save it on project </span>
+      	</div>
+      	<div class="col-sm-2">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Modal Light Control end-->

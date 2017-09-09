@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ES" ng-app="dashboarApp">
+<head>
+	<title>Ctrlable Projects - by Cntrlable</title>
+	<% include ../partials/head %>
+
+</head>
+<body class="container" ng-controller="ctrl_Project_List"  ng-cloak>
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<main>
+	<div>
+		<div class="jumbotron">
+			<h1>Hi!  <%=  user.username %> </h1>
+			<p>Let's work with Ctrlable services</p>
+		</div>
+	</div>
+
+	<div>
+		<h2>List of Projects</h2>
+		<table class="table table-striped table-hover table-responsive">	
+			<thead>
+				<tr>
+					<td class="col-sm-1 col-md-1 col-lg-1"><h4>Status</h4></td>
+					<td class="col-sm-3 col-md-3 col-lg-3"><h4>Project Name</h4></td>
+					<td class="col-sm-1 col-md-1 col-lg-1"><h4>Fase</h4></td>
+					<td class="col-sm-4 col-md-4 col-lg-4"><h4>Detail</h4></td>
+					<td class="col-sm-1 col-md-1 col-lg-1"><h4>Devices</h4></td>
+					<td class="col-sm-1 col-md-1 col-lg-1"></td>
+					<td class="col-sm-1 col-md-1 col-lg-1"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="Project in Projects">
+					<td><button class="btn btn-success btn-sm" ng-show="Project.avaliable" 
+								ng-click="deactivateProject(Project._id, Project.avaliable)" ng-value="msg1='Active' ">{{ msg1 }}</button>
+						<button class="btn btn-danger btn-sm" ng-hide="Project.avaliable" 
+								ng-click="deactivateProject(Project._id, Project.avaliable)" ng-value="msg2='Down' ">{{ msg2 }}</button></td>
+					<td>{{ Project.nameProject + " - " + Project.country + " - " + Project.contactPerson}}</td>
+					<td>{{ Project.activeStatus }}</td>
+					<td>{{ Project.observation+ " - " }}</td>
+					<td>{{ Project.qntDevices }}</td>
+					<td><a href="activeProject/{{Project._id}}"><button class="btn btn-warning btn-sm"> Go! <span class="glyphicon glyphicon-pencil"></span></button></a></td>
+					<td><button class="btn btn-danger  btn-sm" ng-click="deleteProject(Project._id)"> Delete <span class="glyphicon glyphicon-trash"></span></button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+ 
+
+
+<!-- CONNECTION TO CONTROLERS -->
+<script src="/controllers/ctrllerDashboard.js"></script>
+
+
+</body>
+</html>

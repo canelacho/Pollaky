@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/dashboard">
+				<img src="/public/images/ctrlable_logo_2.png" class="logoApp">
+				</a>	
+			</div>
+
+			<ul class="nav navbar-nav">
+				<li><a href="/dashboard">Dashboard</a></li>
+				<li><a href="/app/newProject">New Project</a></li>
+				<li><a href="/app/adminUsers">Users</a></li>
+				<li><a href="/app/about">About</a></li>
+			</ul>
+			<div class="singOut text-right">
+					User: <%=  user.username %> -
+					<a href="closeSession"> Sign Out</a>
+				
+			</div>
+
+	</div>
+</nav>

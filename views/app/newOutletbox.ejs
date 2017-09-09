@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+<body class="container">
+
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+<main>
+
+    <div class="jumbotron">
+      <h1>OutletBox <i class="fa fa-square-o" aria-hidden="true"></i></h1>
+ 
+      <form class="form-horizontal newOutletBoxForm" action="newOutletBox" method="POST">
+  
+        <fieldset disabled>
+        <div class="form-group">
+          <label for="internalIdProyect" class="col-sm-2 col-md-2 col-lg-3">Internal Id Project</label>
+          <input id="internalIdProyect" name="internalIdProyect" placeholder="Internal Id Project" type="text" value="<%=  %>" class="form-control col-sm-10 col-md-10 col-lg-10" />
+        </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="internalIdArea" class="col-sm-2 col-md-2 col-lg-3">Area</label>
+          <select class="form-control" name="internalIdArea" ng-model="internalIdArea">
+            <option value="Cocina" selected>Cocina</option>
+            <option value="Bedroom">Bedroom</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="existing" class="col-sm-2 col-md-2 col-lg-3">Exist</label>
+          <select class="form-control" name="existing" ng-model="existing">
+            <option value="True" selected>True</option>
+            <option value="False">False</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="gangQty" class="col-sm-2 col-md-2 col-lg-3">Gangs Qty</label>
+          <select class="form-control" name="gangQty" ng-model="gangQty">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="wallOrientation" class="col-sm-2 col-md-2 col-lg-3">Wall Orientation</label>
+          <select class="form-control" name="wallOrientation" ng-model="wallOrientation">
+            <option value="Nort" selected>Nort</option>
+            <option value="South">South</option>
+            <option value="East">East</option>
+            <option value="West">West</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+        <label for="xPos" class="col-sm-2 col-md-2 col-lg-3">Horizontal Position</label>
+          <select class="form-control" name="xPos" ng-model="xPos">
+            <option value="Left" selected>Left</option>
+            <option value="Center">Center</option>
+            <option value="Right">Right</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+        <label for="yPos" class="col-sm-2 col-md-2 col-lg-3">Vertical Position</label>
+          <select class="form-control" name="yPos" ng-model="yPos">
+            <option value="Left" selected>Top</option>
+            <option value="Center">Middle</option>
+            <option value="Right">Buttom</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="observation" class="col-sm-2 col-md-2 col-lg-2">Observations </label>
+          <textarea id="observation" name="observation" placeholder="Any info or Observation to do..." type="text" class="form-control col-sm-10 col-md-10 col-lg-10" /></textarea> 
+        </div>
+        
+        <div class="form-group">
+            <div class="col-sm-offset-10 col-md-offset-10 col-lg-offset-10 col-sm-2 col-md-2 col-lg-2">
+              <button type="submit" class="form-control btn btn-default">Save</button>
+            </div>
+        </div>
+      </form> 
+    </div>
+
+
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+
+</body>
+</html>
